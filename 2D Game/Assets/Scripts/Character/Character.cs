@@ -49,7 +49,9 @@ public class Character : MonoBehaviour
         {
             //如果人物向右走，当前朝向却不是朝右，翻转角色
             if (inputH > 0 != facingRight)
+            {
                 Flip();
+            }
 
             animator.SetBool("walking", true);
         }
@@ -124,6 +126,13 @@ public class Character : MonoBehaviour
 
             Hit(_attacker.transform.position);
         }
+    }
+
+    public void Heal(int _amount)
+    {
+        hpCurrent = Mathf.Min(hpMax, hpCurrent + _amount);
+
+        UpdateStatusBar();
     }
 
     void Death()

@@ -9,11 +9,12 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
-        
+        transform.position = target.position + offset;
     }
 
     void Update()
     {
-        transform.position = target.position + offset;
+        if(target != null)
+            transform.position = target.position + offset;
     }
 }

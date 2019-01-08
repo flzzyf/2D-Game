@@ -27,7 +27,7 @@ public class EnemyController : MonoBehaviour
 
         //判断前方可走
         bool walkable = false;
-        foreach (var item in Physics2D.RaycastAll(transform.position + transform.right * pathFinder_x * character.facing, -transform.up, pathFinder_length))
+        foreach (var item in Physics2D.RaycastAll(transform.position + transform.right * pathFinder_x * character.facing + transform.up * .1f, -transform.up, pathFinder_length))
         {
             if (item.collider.transform.parent != transform && item.collider.gameObject.tag == "Ground")
             {
@@ -39,8 +39,8 @@ public class EnemyController : MonoBehaviour
 
         if(!walkable)
         {
-            character.Flip();
             character.Move(0);
+            character.Flip();
 
         }
 

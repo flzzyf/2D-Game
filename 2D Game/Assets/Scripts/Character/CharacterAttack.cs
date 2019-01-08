@@ -65,12 +65,8 @@ public class CharacterAttack : MonoBehaviour
             print("背刺");
             amount *= 2;
         }
-        else
-        {
-            print(Vector2.Dot(_target.transform.position - _caster.transform.position, _caster.transform.right));
-            print(_caster.facing == _target.facing);
-        }
 
+        _caster.Heal(amount);
         _target.TakeDamage(character, amount);
 
         //创建浮动伤害文本

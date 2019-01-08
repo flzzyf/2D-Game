@@ -135,6 +135,18 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1239783566, guid: 0197903e5b6599548aa0970bbf745957, type: 3}
+      propertyPath: attackCollider_center.x
+      value: 0.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 1239783566, guid: 0197903e5b6599548aa0970bbf745957, type: 3}
+      propertyPath: attackCollider_center.y
+      value: 0.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 1239783566, guid: 0197903e5b6599548aa0970bbf745957, type: 3}
+      propertyPath: attackCollider_radius
+      value: 0.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 1239783566, guid: 0197903e5b6599548aa0970bbf745957, type: 3}
       propertyPath: damage.x
       value: 1
       objectReference: {fileID: 0}
@@ -175,7 +187,8 @@ PrefabInstance:
       value: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1239783565, guid: 0197903e5b6599548aa0970bbf745957, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0197903e5b6599548aa0970bbf745957, type: 3}
 --- !u!4 &2982375677598167718 stripped
 Transform:
