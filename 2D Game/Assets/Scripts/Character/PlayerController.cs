@@ -19,10 +19,24 @@ public class PlayerController : MonoBehaviour
         }
 
         //攻击
-        if (Input.GetKeyDown(KeyCode.F) && !character.jumping)
+        if ((Input.GetKeyDown(KeyCode.J) || Input.GetButtonDown("Fire1")) && !character.jumping)
         {
             if(character.characterAttack.canAttack)
                 character.characterAttack.Attack();
         }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            StartCoroutine(BecomeInvincible(1f));
+        }
+    }
+
+    IEnumerator BecomeInvincible(float _duration)
+    {
+        character.IsInvincible = true;
+
+        yield return new WaitForSeconds(_duration);
+
+        character.IsInvincible = false;
     }
 }

@@ -45,7 +45,7 @@ public class CharacterAttack : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position + center, attackCollider_radius);
         foreach (var item in colliders)
         {
-            if (item.tag == "Player" && item.gameObject != gameObject)
+            if (item.tag == "Player" && item.gameObject != gameObject && !item.GetComponent<Character>().IsInvincible)
             {
                 ApplyDamage(character, item.GetComponent<Character>());
             }

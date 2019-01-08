@@ -32,6 +32,13 @@ public class Character : MonoBehaviour
 
     public GameObject effect_death;
 
+    int invincibleCount;
+    public bool IsInvincible
+    {
+        get { return invincibleCount > 0; }
+        set { if (value) invincibleCount++; else invincibleCount--; }
+    }
+
     void Awake()
     {
         animator = gfx.GetComponent<Animator>();
@@ -153,10 +160,14 @@ public class Character : MonoBehaviour
     {
         for (int i = 0; i < _times; i++)
         {
+            IsInvincible = true;
+
             spriteRenderer.enabled = false;
             yield return new WaitForSeconds(.2f);
             spriteRenderer.enabled = true;
             yield return new WaitForSeconds(.2f);
+
+            IsInvincible = false;
         }
     }
 }
