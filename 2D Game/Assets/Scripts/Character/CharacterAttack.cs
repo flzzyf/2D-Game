@@ -70,7 +70,7 @@ public class CharacterAttack : MonoBehaviour
         _target.TakeDamage(character, amount);
 
         //创建浮动伤害文本
-        FloatingTextMgr.instance.Create(_target.transform.position + Vector3.up * 1, amount.ToString());
+        FloatingTextMgr.instance.Create(_target.transform.position + Vector3.up * 1, amount.ToString(), Color.yellow);
     }
 
     void OnDrawGizmos()

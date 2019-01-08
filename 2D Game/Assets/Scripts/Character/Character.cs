@@ -23,8 +23,8 @@ public class Character : MonoBehaviour
 
     float inputH;
 
-    public float hpMax = 1;
-    float hpCurrent;
+    public int hpMax = 1;
+    int hpCurrent;
 
     public Slider slider_hp;
 
@@ -85,7 +85,7 @@ public class Character : MonoBehaviour
 
     void UpdateStatusBar()
     {
-        slider_hp.value = hpCurrent / hpMax;
+        slider_hp.value = (float)hpCurrent / hpMax;
     }
 
     //碰撞
@@ -137,7 +137,14 @@ public class Character : MonoBehaviour
 
     public void Heal(int _amount)
     {
-        hpCurrent = Mathf.Min(hpMax, hpCurrent + _amount);
+        //判断有造成治疗
+        if (hpCurrent == hpMax)
+            return;
+
+        int healAmount = Mathf.Min(hpMax, hpCurrent + _amount) - hpCurrent;
+        FloatingTextMgr.instance.Create(transform.position + Vector3.up * 1, healAmount.ToString(), Color.green);
+
+        hpCurrent += healAmount;
 
         UpdateStatusBar();
     }

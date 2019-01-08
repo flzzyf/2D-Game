@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     public Character character;
 
+    public ParticleSystem particle;
+
     void Update()
     {
         float inputH = Input.GetAxisRaw("Horizontal");
@@ -28,15 +30,18 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             StartCoroutine(BecomeInvincible(1f));
+
         }
     }
 
     IEnumerator BecomeInvincible(float _duration)
     {
+            particle.Play();
         character.IsInvincible = true;
 
         yield return new WaitForSeconds(_duration);
 
+        particle.Stop();
         character.IsInvincible = false;
     }
 }

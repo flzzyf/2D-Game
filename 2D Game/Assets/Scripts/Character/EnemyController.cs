@@ -26,24 +26,41 @@ public class EnemyController : MonoBehaviour
         }
 
         //判断前方可走
+        if(WalkableForward())
+        {
+            character.Move(character.facing);
+        }
+        else
+        {
+            character.Move(0);
+            character.Flip();
+        }
+    }
+
+    bool WalkableForward()
+    {
         bool walkable = false;
+        //判断前方地面
         foreach (var item in Physics2D.RaycastAll(transform.position + transform.right * pathFinder_x * character.facing + transform.up * .1f, -transform.up, pathFinder_length))
         {
             if (item.collider.transform.parent != transform && item.collider.gameObject.tag == "Ground")
             {
                 walkable = true;
-
-                character.Move(character.facing);
+                break;
             }
         }
 
-        if(!walkable)
+        //判断前方墙壁
+        foreach (var item in Physics2D.RaycastAll(transform.position + transform.right * pathFinder_x * character.facing + transform.up * 1, transform.right * character.facing, pathFinder_length))
         {
-            character.Move(0);
-            character.Flip();
-
+            if (item.collider.transform.parent != transform && item.collider.gameObject.tag == "Ground")
+            {
+                walkable = false;
+                break;
+            }
         }
 
+        return walkable;
     }
 
     private void OnDrawGizmos()
