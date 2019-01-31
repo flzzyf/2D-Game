@@ -320,6 +320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef7e8e91907a4307865daeb847d0c35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gun: {fileID: 1580255548}
 --- !u!1 &1028728020
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,6 +457,16 @@ Prefab:
     - target: {fileID: 4603655609910612, guid: bd7bf98d7ef2f479081346d8207d8693, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114868378642401192, guid: bd7bf98d7ef2f479081346d8207d8693,
+        type: 2}
+      propertyPath: gunController
+      value: 
+      objectReference: {fileID: 987830312}
+    - target: {fileID: 50001850315796126, guid: bd7bf98d7ef2f479081346d8207d8693,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd7bf98d7ef2f479081346d8207d8693, type: 2}
@@ -631,6 +642,11 @@ MonoBehaviour:
   firePoint: {fileID: 1269259371}
   prefab_missile: {fileID: 1625495585446900, guid: ca35c2e13506749e49390b2844634574,
     type: 2}
+  missileSpeed: 10
+  missileLifeTime: 1
+  recoil: 1.2
+  precisionRecoverRate: 9
+  fireInterval: 0.1
 --- !u!1 &1642775207
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
 
     public GunController gunController;
 
-
     void Update()
     {
         float inputH = Input.GetAxisRaw("Horizontal");
@@ -30,6 +29,11 @@ public class PlayerController : MonoBehaviour
 
             // if(character.characterAttack.canAttack)
             //     character.characterAttack.Attack();
+        }
+
+        if (Input.GetButton("Fire1"))
+        {
+            gunController.Fire();
         }
 
         if (Input.GetKeyDown(KeyCode.E))
