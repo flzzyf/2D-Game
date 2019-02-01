@@ -27,12 +27,21 @@ public class PlayerController : MonoBehaviour
         {
             gunController.Fire();
 
+            character.AnimationTrigger("attack");
+            //前推
+            character.Push(new Vector2(character.facing, 0.2f) * 5);
+
             // if(character.characterAttack.canAttack)
             //     character.characterAttack.Attack();
         }
 
         if (Input.GetButton("Fire1"))
         {
+            if (Input.GetButtonUp("Fire1"))
+            {
+                print("up");
+            }
+
             gunController.Fire();
         }
 

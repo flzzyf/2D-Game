@@ -23,7 +23,7 @@ public class CharacterAttack : MonoBehaviour
 
     void Update()
     {
-        if(currentCooldown > 0)
+        if (currentCooldown > 0)
         {
             currentCooldown -= Time.deltaTime;
         }
@@ -33,8 +33,9 @@ public class CharacterAttack : MonoBehaviour
     {
         currentCooldown = cooldown;
 
-        character.animator.Play("AD_Attack_1");
-        character.rb.AddForce(new Vector3(character.facing, 0.2f, 0) * 5, ForceMode2D.Impulse);
+        character.AnimationTrigger("attack");
+
+        character.Push(new Vector2(character.facing, 0.2f) * 5);
     }
 
     public void AttackEffect()

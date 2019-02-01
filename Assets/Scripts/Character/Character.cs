@@ -8,18 +8,21 @@ public class Character : MonoBehaviour
     public float speed = 1;
     public float jumpForce = 3;
 
+    //组件
     public GameObject gfx;
-
-    [HideInInspector]
-    public Animator animator;
+    Animator animator;
     SpriteRenderer spriteRenderer;
-    [HideInInspector]
-    public Rigidbody2D rb;
+
+    Rigidbody2D rb;
+
     [HideInInspector]
     public CharacterAttack characterAttack;
 
     bool facingRight { get { return !spriteRenderer.flipX; } }
-    public bool jumping { get { return animator.GetBool("jumping"); } }
+
+    //正在跳跃
+    [HideInInspector]
+    public bool jumping;
 
     float inputH;
 
@@ -44,6 +47,7 @@ public class Character : MonoBehaviour
         animator = gfx.GetComponent<Animator>();
         spriteRenderer = gfx.GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
+
         characterAttack = GetComponent<CharacterAttack>();
 
         hpCurrent = hpMax;
@@ -94,6 +98,7 @@ public class Character : MonoBehaviour
         //目标在下，则结束跳跃状态
         if (Vector3.Dot(transform.up, collision.transform.position - transform.position) < 0)
         {
+            jumping = false;
             animator.SetBool("jumping", false);
         }
     }
@@ -103,10 +108,14 @@ public class Character : MonoBehaviour
         inputH = _dir;
     }
 
+    //跳跃
     public void Jump()
     {
         rb.velocity = Vector3.zero;
         rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
+
+        jumping = true;
+        //跳跃动画
         animator.SetBool("jumping", true);
     }
 
@@ -176,5 +185,17 @@ public class Character : MonoBehaviour
 
             IsInvincible = false;
         }
+    }
+
+    //触发动画
+    public void AnimationTrigger(string _name)
+    {
+        animator.SetTrigger(_name);
+    }
+
+    //施加力
+    public void Push(Vector2 _dir)
+    {
+        rb.AddForce(_dir, ForceMode2D.Impulse);
     }
 }

@@ -7,6 +7,9 @@ public class GunController : MonoBehaviour
 
     public Gun gun;
 
+    //持续开火
+    public bool fireing;
+
     void Start()
     {
         mainCamera = Camera.main;
