@@ -64,10 +64,9 @@ public class Character : MonoBehaviour
                 Flip();
             }
 
-            animator.SetBool("walking", true);
         }
-        else
-            animator.SetBool("walking", false);
+
+        animator.SetFloat("speed", Mathf.Abs(inputH));
     }
 
     public void Flip()

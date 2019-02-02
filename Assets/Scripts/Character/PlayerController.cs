@@ -27,10 +27,6 @@ public class PlayerController : MonoBehaviour
         {
             gunController.Fire();
 
-            character.AnimationTrigger("attack");
-            //前推
-            character.Push(new Vector2(character.facing, 0.2f) * 5);
-
             // if(character.characterAttack.canAttack)
             //     character.characterAttack.Attack();
         }
@@ -48,8 +44,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             StartCoroutine(BecomeInvincible(1f));
-
         }
+
+        //character.AnimationTrigger("attack");
+        //前推
+        //character.Push(new Vector2(character.facing, 0.2f) * 5);
     }
 
     IEnumerator BecomeInvincible(float _duration)

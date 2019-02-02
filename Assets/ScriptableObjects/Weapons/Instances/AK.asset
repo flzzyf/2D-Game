@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfcb7fff4f61a4b60b355942d579a0bc, type: 3}
+  m_Name: AK
+  m_EditorClassIdentifier: 
+  OnMouseClick:
+  - type: 0
+    time: 0
+  KeepMouseDown: []
+  gunSprite: {fileID: 21300000, guid: 53ef668badc38d24dae5733fb696f6d3, type: 3}
+  missileSpeed: 10
+  missileLifeTime: 1
+  recoil: 1.2
+  precisionRecoverRate: 9
+  fireInterval: 0.1
+  firePoint: {x: 0, y: 0}
