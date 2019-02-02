@@ -57,10 +57,16 @@ public class Gun : MonoBehaviour
         {
             _lifetime -= Time.deltaTime;
 
+            RaycastHit2D hit = Physics2D.Raycast(_missile.position, _missile.right, weapon.missileSpeed * Time.deltaTime);
             //命中判定
-            if (Physics2D.Raycast(_missile.position, _missile.right, weapon.missileSpeed * Time.deltaTime))
+            if (hit)
             {
-                print("hit");
+                if (hit.collider.gameObject.CompareTag("Player"))
+                {
+                    Vector2 dir = _missile.right;
+                    hit.collider.gameObject.GetComponent<Character>().Push(dir.normalized * 3);
+                }
+
                 break;
             }
 
