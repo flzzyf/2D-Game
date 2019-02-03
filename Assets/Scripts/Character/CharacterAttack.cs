@@ -35,7 +35,7 @@ public class CharacterAttack : MonoBehaviour
 
         character.AnimationTrigger("attack");
 
-        character.Push(new Vector2(character.facing, 0.2f) * 5);
+        character.gameObject.Push(new Vector2(character.facing, 0.2f) * 5);
     }
 
     public void AttackEffect()

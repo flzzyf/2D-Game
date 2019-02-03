@@ -5836,7 +5836,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: f2bf55bbd8f1f472a94c3d08f786d69e, type: 2}
     - target: {fileID: 1814674361102834, guid: bd7bf98d7ef2f479081346d8207d8693, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd7bf98d7ef2f479081346d8207d8693, type: 2}
@@ -6131,13 +6131,14 @@ GameObject:
   - component: {fileID: 1476565841}
   - component: {fileID: 1476565840}
   - component: {fileID: 1476565839}
+  - component: {fileID: 1476565843}
   m_Layer: 0
   m_Name: Cube (7)
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &1476565839
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6218,6 +6219,26 @@ Transform:
   m_Father: {fileID: 2063710804}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &1476565843
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1476565838}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!4 &1555866144 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4603655609910612, guid: bd7bf98d7ef2f479081346d8207d8693,

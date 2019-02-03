@@ -64,7 +64,7 @@ public class Gun : MonoBehaviour
                 if (hit.collider.gameObject.CompareTag("Player"))
                 {
                     Vector2 dir = _missile.right;
-                    hit.collider.gameObject.GetComponent<Character>().Push(dir.normalized * 3);
+                    hit.collider.gameObject.Push(dir.normalized * 3);
                 }
 
                 break;

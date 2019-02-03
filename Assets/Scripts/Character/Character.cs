@@ -191,10 +191,4 @@ public class Character : MonoBehaviour
     {
         animator.SetTrigger(_name);
     }
-
-    //施加力
-    public void Push(Vector2 _dir)
-    {
-        rb.AddForce(_dir, ForceMode2D.Impulse);
-    }
 }
