@@ -18,7 +18,7 @@ public class Character : MonoBehaviour
     [HideInInspector]
     public CharacterAttack characterAttack;
 
-    bool facingRight { get { return !spriteRenderer.flipX; } }
+    bool facingRight;
 
     //正在跳跃
     [HideInInspector]
@@ -58,20 +58,13 @@ public class Character : MonoBehaviour
     {
         if (inputH != 0)
         {
-            //如果人物向右走，当前朝向却不是朝右，翻转角色
-            if (inputH > 0 != facingRight)
-            {
-                Flip();
-            }
+            facingRight = inputH > 0 ? true : false;
 
+            animator.SetFloat("facingRight", facingRight ? 1 : 0);
         }
 
-        animator.SetFloat("speed", Mathf.Abs(inputH));
-    }
 
-    public void Flip()
-    {
-        spriteRenderer.flipX = !spriteRenderer.flipX;
+        animator.SetFloat("speed", Mathf.Max(Mathf.Abs(inputH), 0.2f));
     }
 
     void FixedUpdate()

@@ -1,15 +1,7 @@
 fileFormatVersion: 2
-guid: a75c138dded0f435dbea4e430d964263
+guid: ff9c3b730f15d4b078d8823523d6e967
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: GIRL_walk_0
-    21300002: GIRL_walk_1
-    21300004: GIRL_walk_2
-    21300006: GIRL_walk_3
-    21300008: GIRL_walk_4
-    21300010: GIRL_walk_5
-    21300012: GIRL_walk_6
-    21300014: GIRL_walk
+  fileIDToRecycleName: {}
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -90,31 +82,11 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: GIRL_walk
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 12
-        width: 273
-        height: 51
-      alignment: 9
-      pivot: {x: 0.93772894, y: 0.39215687}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7ee6b186a2a3343d29438d33d5f90b71
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 8ff65c993d4ac4612831588e54897977
+    spriteID: 3a77b0690876a4beeb04322b38d8e058
     vertices: []
     indices: 
     edges: []

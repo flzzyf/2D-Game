@@ -31,8 +31,8 @@ public class GunController : MonoBehaviour
 
     }
 
-    public void Fire()
+    public void OnMouseClick()
     {
-        gun.Fire();
+        gun.OnMouseClick();
     }
 }

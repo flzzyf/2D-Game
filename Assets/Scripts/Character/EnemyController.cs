@@ -18,7 +18,7 @@ public class EnemyController : MonoBehaviour
         RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position + transform.up * eyeHeight, transform.right * character.facing, eyeSight);
         foreach (var item in hits)
         {
-            if(item.collider.transform.parent != transform && item.collider.gameObject.tag == "Player")
+            if (item.collider.transform.parent != transform && item.collider.gameObject.tag == "Player")
             {
                 if (character.characterAttack.canAttack)
                     character.characterAttack.Attack();
@@ -26,14 +26,14 @@ public class EnemyController : MonoBehaviour
         }
 
         //判断前方可走
-        if(WalkableForward())
+        if (WalkableForward())
         {
             character.Move(character.facing);
         }
         else
         {
             character.Move(0);
-            character.Flip();
+            //character.Flip();
         }
     }
 
@@ -69,7 +69,7 @@ public class EnemyController : MonoBehaviour
         Gizmos.DrawLine(transform.position + transform.up * eyeHeight, transform.position + transform.up * eyeHeight + transform.right * eyeSight);
 
         Gizmos.color = Color.blue;
-        if(Application.isPlaying)
-        Gizmos.DrawLine(transform.position + transform.right * pathFinder_x * character.facing, transform.position + transform.right * pathFinder_x + -transform.up * character.facing * pathFinder_length);
+        if (Application.isPlaying)
+            Gizmos.DrawLine(transform.position + transform.right * pathFinder_x * character.facing, transform.position + transform.right * pathFinder_x + -transform.up * character.facing * pathFinder_length);
     }
 }

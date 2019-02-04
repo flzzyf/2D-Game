@@ -31,6 +31,11 @@ public class Gun : MonoBehaviour
         }
     }
 
+    public void OnMouseClick()
+    {
+        StartCoroutine(OnMouseClickCor());
+    }
+
     //开火
     public void Fire()
     {
@@ -40,6 +45,9 @@ public class Gun : MonoBehaviour
 
         currentCD += weapon.fireInterval;
 
+        //根据开火效果
+
+
         //发射飞弹
         GameObject missile = Instantiate(prefab_missile, firePoint.position, transform.rotation);
         StartCoroutine(LaunchMissile(missile.transform, weapon.missileLifeTime));
@@ -48,6 +56,17 @@ public class Gun : MonoBehaviour
         currentPrecision += weapon.recoil;
 
         transform.Rotate(Vector3.forward * weapon.recoil * 10);
+    }
+
+    IEnumerator OnMouseClickCor()
+    {
+        foreach (var item in weapon.OnMouseClick)
+        {
+            if (item.type == OperationType.Fire)
+                Fire();
+            else if (item.type == OperationType.Wait)
+                yield return new WaitForSeconds(item.time);
+        }
     }
 
     //发射飞弹
